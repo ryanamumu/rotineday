@@ -1,0 +1,30 @@
+<h1>Lista de Hábitos</h1>
+<a href="/habitos/create">Adicionar Hábito</a>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each habitos}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.descricao}}</td>
+      <td>{{#if this.status}}Ativo{{else}}Inativo{{/if}}</td>
+      <td>
+        <a href="/habitos/edit/{{this.id}}">Editar</a>
+        <a href="/habitos/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+        <form action="/habitos/mark/{{this.id}}" method="POST" style="display:inline;">
+          <button type="submit">
+            {{#if this.status}}Desmarcar{{else}}Marcar{{/if}}
+          </button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

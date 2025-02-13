@@ -1,0 +1,13 @@
+<h1>Editar Hábito</h1>
+<form action="/habitos/edit/{{habito.id}}" method="POST">
+  <label for="nome">Nome:</label>
+  <input type="text" name="nome" id="nome" value="{{habito.nome}}" required><br><br>
+
+  <label for="descricao">Frequencia:</label>
+  <input type="text" name="descricao" id="descricao" value="{{habito.descricao}}" required><br><br>
+
+  <label for="status">Status:</label>
+  <input type="checkbox" name="status" id="status" {{#if habito.status}}checked{{/if}}><br><br>
+
+  <button type="submit">Atualizar Hábito</button>
+</form>
