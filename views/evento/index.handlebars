@@ -1,0 +1,28 @@
+<h1>Lista de Eventos</h1>
+<a href="/eventos/create">Adicionar Evento</a>
+<link rel="stylesheet" href="views\style.css">
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Data</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each eventos}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.descricao}}</td>
+      <td>{{this.data}}</td>
+      <td>{{#if this.status}}Ativo{{else}}Inativo{{/if}}</td>
+      <td>
+        <a href="/eventos/edit/{{this.id}}">Editar</a>
+        <a href="/eventos/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

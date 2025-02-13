@@ -1,0 +1,20 @@
+<h1>Editar Evento</h1>
+<form action="/eventos/edit/{{evento.id}}" method="POST">
+  <div>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" value="{{evento.nome}}" required>
+  </div>
+  <div>
+    <label for="descricao">Descrição</label>
+    <input type="text" id="descricao" name="descricao" value="{{evento.descricao}}">
+  </div>
+  <div>
+    <label for="data">Data</label>
+    <input type="datetime-local" id="data" name="data" value="{{evento.data}}" required>
+  </div>
+  <div>
+    <label for="status">Status</label>
+    <input type="checkbox" id="status" name="status" {{#if evento.status}}checked{{/if}}>
+  </div>
+  <button type="submit">Atualizar Evento</button>
+</form>
