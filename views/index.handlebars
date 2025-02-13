@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="./style.css">
+<h1>Lista de Tarefas</h1>
+<a href="/create">Adicionar Tarefa</a>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Status</th>
+      <th>Favorito</th>
+      <th>Fixada</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tasks}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.descricao}}</td>
+      <td>{{#if this.status}}Concluída{{else}}Pendente{{/if}}</td>
+      <td>
+        <form action="/favoritar/{{this.id}}" method="POST">
+          <button type="submit">
+            {{#if this.favorito}}⭐ Favorito{{else}}☆ Favoritar{{/if}}
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/fixar/{{this.id}}" method="POST">
+          <button type="submit">
+            {{#if this.fixada}}🔒 Fixada{{else}}🔓 Fixar{{/if}}
+          </button>
+        </form>
+      </td>
+      <td>
+        <a href="/edit/{{this.id}}">Editar</a>
+        <a href="/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>Lista de Eventos</h1>
+<a href="/events/create">Adicionar Evento</a>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Data</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each events}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.descricao}}</td>
+      <td>{{this.data}}</td>
+      <td>{{#if this.status}}Ativo{{else}}Inativo{{/if}}</td>
+      <td>
+        <a href="/events/edit/{{this.id}}">Editar</a>
+        <a href="/events/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+        <form action="/events/mark/{{this.id}}" method="POST" style="display:inline;">
+          <button type="submit">
+            {{#if this.status}}Desmarcar{{else}}Marcar{{/if}}
+          </button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<h1>Ir para Metas</h1>
+  <a href="/metas">Ir para Metas</a> 
+
+<h1>Ir para Hábitos</h1>
+<a href="/habitos">Ir para Hábitos</a>
+
+
+
+<h1>Ir para Lista de Copras</h1>
+<a href="/lista-compras">Ir para Lista de Compras</a>
+
+
