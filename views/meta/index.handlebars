@@ -1,0 +1,12 @@
+<h1>Metas</h1>
+<a href="/metas/create">Criar nova meta</a>
+<ul>
+  {{#each metas}}
+    <li>
+      <strong>{{this.nome}}</strong> - {{this.descricao}} 
+      - {{#if this.concluida}}Concluída{{else}}Pendente{{/if}}
+      <a href="/metas/edit/{{this.id}}">Editar</a>
+      <a href="/metas/delete/{{this.id}}">Deletar</a>
+    </li>
+  {{/each}}
+</ul>

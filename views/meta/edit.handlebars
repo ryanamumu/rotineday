@@ -1,0 +1,13 @@
+<h1>Editar Meta</h1>
+<form action="/metas/edit/{{meta.id}}" method="POST">
+  <label for="nome">Nome da Meta:</label>
+  <input type="text" name="nome" value="{{meta.nome}}" required>
+
+  <label for="descricao">Descrição:</label>
+  <textarea name="descricao" required>{{meta.descricao}}</textarea>
+
+  <label for="concluida">Concluída:</label>
+  <input type="checkbox" name="concluida" {{#if meta.concluida}}checked{{/if}}>
+
+  <button type="submit">Atualizar Meta</button>
+</form>
