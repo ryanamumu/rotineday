@@ -1,0 +1,32 @@
+
+{{#> layouts/main}}
+
+<h2>Lista de Compras</h2>
+
+<a href="/lista-compras/create" class="btn btn-primary">Adicionar Item</a>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade</th>
+      <th>Comprado</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each lista}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.quantidade}}</td>
+      <td>{{#if this.comprado}}✅{{else}}❌{{/if}}</td>
+      <td>
+        <a href="/lista-compras/edit/{{this.id}}" class="btn btn-warning btn-sm">Editar</a>
+        <a href="/lista-compras/delete/{{this.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir este item?');">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{/layouts/main}}

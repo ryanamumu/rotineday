@@ -1,0 +1,23 @@
+{{#> layouts/main}}
+
+<h2>Editar Item da Lista de Compras</h2>
+
+<form action="/lista-compras/edit/{{item.id}}" method="POST">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome do Item</label>
+    <input type="text" id="nome" name="nome" class="form-control" value="{{item.nome}}" required>
+  </div>
+  <div class="mb-3">
+    <label for="quantidade" class="form-label">Quantidade</label>
+    <input type="number" id="quantidade" name="quantidade" class="form-control" value="{{item.quantidade}}" required>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" id="comprado" name="comprado" class="form-check-input" {{#if item.comprado}}checked{{/if}}>
+    <label for="comprado" class="form-check-label">Comprado</label>
+  </div>
+  <button type="submit" class="btn btn-success">Salvar Alterações</button>
+</form>
+
+<a href="/lista-compras" class="btn btn-secondary mt-3">Voltar</a>
+
+{{/layouts/main}}
